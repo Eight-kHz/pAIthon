@@ -43,14 +43,13 @@
         
         // Функция для отправки данных в чат
         function sendData() {
-            tg.sendData("Это данные из Mini App!");  // Отправляем данные в чат
+            const data = {
+                message: "Это данные из Mini App!",
+                timestamp: new Date().toISOString()
+            };
+            tg.sendData(JSON.stringify(data));  // Отправляем данные в формате JSON
             tg.MainButton.text = "Отправлено!";  // Меняем текст на кнопке
         }
-
-        // Обработчик для получения данных в боте (при нажатии на кнопку)
-        tg.onEvent('mainButtonClicked', function() {
-            tg.sendData('Отправить данные обратно в бот');  // Можно отправить другое сообщение
-        });
     </script>
 </body>
 </html>
