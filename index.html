@@ -33,24 +33,23 @@
     <h1>Добро пожаловать в Mini App!</h1>
     <p>Нажми на кнопку, чтобы отправить данные в чат.</p>
     <button onclick="sendData()">Отправить в чат</button>
-
     <script>
         const tg = window.Telegram.WebApp;
-        tg.expand(); // Расширяем Web App на всю ширину экрана
-
+        tg.expand();  // Расширяем Web App на всю ширину экрана
+        
         // Настройка основной кнопки Telegram
         tg.MainButton.text = "Готово";
         tg.MainButton.show();
         
         // Функция для отправки данных в чат
         function sendData() {
-            tg.sendData("Это данные из Mini App!");
-            tg.MainButton.text = "Отправлено!";
+            tg.sendData("Это данные из Mini App!");  // Отправляем данные в чат
+            tg.MainButton.text = "Отправлено!";  // Меняем текст на кнопке
         }
 
         // Обработчик для получения данных в боте (при нажатии на кнопку)
         tg.onEvent('mainButtonClicked', function() {
-            tg.sendData('Отправить данные обратно в бот');
+            tg.sendData('Отправить данные обратно в бот');  // Можно отправить другое сообщение
         });
     </script>
 </body>
